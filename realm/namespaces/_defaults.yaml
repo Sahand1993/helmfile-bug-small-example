@@ -1,0 +1,18 @@
+# Default values to set for args along with dedicated keys that can be set by contributors, cli args take precedence over these.
+# In other words, unset values results in no flags passed to helm.
+# See the helm usage (helm SUBCOMMAND -h) for more info on default values when those flags aren't provided.
+helmDefaults:
+  args:
+    - "--no-hooks"
+    - "-amonitoring.coreos.com/v1"
+
+values:
+  - aDependentValue: "{{.Values.myValue}}"
+
+environments:
+  myEnv:
+    values:
+      - ../../../values/env/myEnv/values.yaml
+    secrets:
+      - ../../../values/env/myEnv/secrets.yaml
+

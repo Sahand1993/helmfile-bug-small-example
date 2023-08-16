@@ -1,0 +1,16 @@
+bases:
+  - ../../_defaults.yaml
+
+values:
+  - app: kafka
+
+---
+templates:
+
+  kafka: &kafka
+    chart: bitnami/kafka
+    installed: true
+
+releases:
+  - name: kafka
+    <<: *kafka
